@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: gitmarker
       run: "for i in *.kicad_pcb; do git rev-parse --short HEAD | xargs -I % sed -i 's/{GITHASH}/%/g' $i; done" # add git marker
-    - uses: INTI-CMNB/KiBot@v2_k7
+    - uses: INTI-CMNB/KiBot@8a00b90949bad65e36658d4551820edee9c0f5d6  # v2_k7
       with:
         # Required - kibot config file
         config: config.kibot.yaml
