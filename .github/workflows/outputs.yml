@@ -23,6 +23,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: gitmarker
       run: "for i in *.kicad_pcb; do git rev-parse --short HEAD | xargs -I % sed -i 's/{GITHASH}/%/g' $i; done" # add git marker
+      # see https://kibot.readthedocs.io/en/latest/usage_with_ci_cd.html
+      # I think we need ghcr.io/inti-cmnb/kicad7_auto_full:1.6.1 1.6.1 7.0.2.1 which is unfortunatly not tagged
     - uses: INTI-CMNB/KiBot@v2_k7_1_6_2
       with:
         # Required - kibot config file

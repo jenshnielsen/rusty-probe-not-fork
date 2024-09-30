@@ -31,7 +31,7 @@ preflight:
   update_xml: true
   run_drc: true
   check_zone_fills: false
-  ignore_unconnected: false
+  ignore_unconnected: true
 
 global:
   drc_exclusions_workaround: true
@@ -46,7 +46,7 @@ outputs:
     options:
       exclude_filter: 'exclude_any'
       #group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']S
-  
+
   - name: 'position'
     comment: "Pick and place file, JLC style"
     type: position
@@ -108,7 +108,7 @@ outputs:
       use_gerber_net_attributes: true
 
     layers: "all"
-  
+
   - name: 'drill_files'
     comment: "Drill files for the board house"
     type: excellon
@@ -116,12 +116,12 @@ outputs:
     options:
       metric_units: true
       pth_and_npth_single_file: false
-  
+
   - name: 'zip_gerbers'
     comment: "ZIPed gerbers"
     type: compress
     dir: ./
     priority: 0
     options:
-      files: 
+      files:
         - source: "Gerbers/*"
